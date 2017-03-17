@@ -290,6 +290,13 @@ open class TrustBadgeManager: NSObject {
     
     func initialize(){
         
+        self.terms = []
+        self.mainElements = []
+        self.otherElements = []
+        self.usageElements = []
+        self.css = ""
+        self.appName = ""
+
         //initialize main Elements
         if let mainElements = self.config?.mainElements{
             self.mainElements.append(contentsOf: mainElements)
