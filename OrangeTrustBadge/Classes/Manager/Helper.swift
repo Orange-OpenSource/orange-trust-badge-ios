@@ -28,6 +28,10 @@ class Helper {
     // MARK: Helper methods
     
     static func localizedString(_ key : String)-> String{
+        if let delegate = TrustBadgeManager.sharedInstance.config?.delegate, let localizedString = delegate.localizedTrustBadgeString(forKey: key) {
+            return localizedString
+        }
+
         let localizedStringFromAppBundle = NSLocalizedString(key, comment: "")
         if(localizedStringFromAppBundle == key){
             let localizedStringFromTrustBadgeBundle = NSLocalizedString(key, tableName: nil, bundle: Bundle(for: TrustBadgeConfig.self), value: "", comment: "").replacingOccurrences(of: "$$cssStylesheet$$", with: TrustBadgeManager.sharedInstance.css).replacingOccurrences(of: "$$applicationName$$", with: TrustBadgeManager.sharedInstance.appName)
