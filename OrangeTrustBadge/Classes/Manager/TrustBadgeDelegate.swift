@@ -25,5 +25,17 @@ import Foundation
 
 public protocol TrustBadgeDelegate: class {
 
+    /// Gets the localized string for a wording key.
+    /// - Parameters:
+    ///   - key: The wording key to localize.
+    /// - Returns:
+    /// The localized string or `nil` to use the default localized string.
     func localizedTrustBadgeString(forKey key: String) -> String?
+}
+
+public extension TrustBadgeDelegate {
+
+    func localizedTrustBadgeString(forKey key: String) -> String? {
+        return nil
+    }
 }
