@@ -31,6 +31,9 @@ import AVKit
 /// TrustBadgeConfig aims to encapsulate all the configuration variables and custom handlers of TrustBadgeManager
 open class TrustBadgeConfig : NSObject{
     
+    /// (Optional) Delegate for the TrustBadgeManager
+    open weak var delegate : TrustBadgeDelegate?
+
     /// Name of the app, (Default : Bundle Display Name of host app)
     open var appName : String?
     
