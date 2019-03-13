@@ -7,8 +7,14 @@
 //
 
 import CoreLocation
+#if HEALTHKIT
 import HealthKit
+#endif
+
+#if HOMEKIT
 import HomeKit
+#endif
+
 import CoreBluetooth
 import OrangeTrustBadge
 
@@ -25,13 +31,17 @@ class PersonalData: NSObject {
     var locationCompletionHandler: (()->Void)?
 
     // HealthKit
+    #if HEALTHKIT
     let hkShareTypes: Set<HKSampleType> = [HKWorkoutType.workoutType()]
     let hkReadTypes: Set<HKObjectType> = [HKWorkoutType.workoutType()]
+    #endif
     
     // HomeKit
+    #if HOMEKIT
     lazy var homeManager: HMHomeManager = {
         return HMHomeManager()
     }()
+    #endif
 
     // BluetoothManager
     var peripheralManager: CBPeripheralManager?

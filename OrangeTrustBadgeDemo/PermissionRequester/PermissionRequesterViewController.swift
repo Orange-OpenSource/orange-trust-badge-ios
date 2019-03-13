@@ -55,6 +55,49 @@ protocol PermissionRequesterDelegate {
     func didFinishPerformRequests()
 }
 
+extension PermissionRequesterDelegate {
+    // Request speech recongnition authorization
+    func requestSpeechRecognitionAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request media library authorization
+    func requestMediaLibraryAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request motion & activity authorization
+    func requestMotionActivityAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request healthkit authorization
+    func requestHealthKitAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request photoLibrary authorization
+    func requestPhotoLibraryAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request camera authorization
+    func requestCameraAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request calendar authorization
+    func requestCalendarAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request reminders authorization
+    func requestReminderAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request microphone authorization
+    func requestMicrophoneAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request contacts authorization
+    func requestContactAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request homekit authorization
+    func requestHomeKitAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request Access to UserLocation in order to show them in iOS Preferences Panel
+    func requestLocationAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request Bluetooh Sharing authorization
+    func requestBluetoothSharingAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+    
+    // Request PushNotification authorization
+    func requestPushNotificationAuthorization(completionHandler: @escaping ()->Void) {completionHandler()}
+}
 
 class PermissionRequesterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     

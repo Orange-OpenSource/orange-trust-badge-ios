@@ -24,18 +24,39 @@
 
 import OrangeTrustBadge
 
+#if CORELOCATION
 import CoreLocation
+#endif
+#if CONTACTS
 import Contacts
+#endif
+#if PHOTOS
 import Photos
+#endif
+#if MEDIAPLAYER || CAMERA
 import MediaPlayer
+#endif
+#if EVENTKIT
 import EventKit
+#endif
+#if BLUETOOTH
 import CoreBluetooth
+#endif
+#if MICROPHONE
 import AVFoundation
+#endif
+#if SPEECH
 import Speech
+#endif
+#if USERNOTIFICATIONS
 import UserNotifications
-import HomeKit
+#endif
+#if MOTION
 import CoreMotion
+#endif
+#if HEALTHKIT
 import HealthKit
+#endif
 
 class ViewController: UIViewController {
     

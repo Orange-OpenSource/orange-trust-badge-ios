@@ -22,17 +22,39 @@
 */
 
 import UIKit
+#if CORELOCATION
 import CoreLocation
+#endif
+#if CONTACTS
 import Contacts
+#endif
+#if PHOTOS
 import Photos
+#endif
+#if MEDIAPLAYER || CAMERA
 import MediaPlayer
+#endif
+#if EVENTKIT
 import EventKit
+#endif
+#if BLUETOOTH
 import CoreBluetooth
+#endif
+#if MICROPHONE
 import AVFoundation
+#endif
+#if SPEECH
 import Speech
+#endif
+#if USERNOTIFICATIONS
 import UserNotifications
+#endif
+#if MOTION
 import CoreMotion
+#endif
+#if HEALTHKIT
 import HealthKit
+#endif
 
 @objc public protocol TrustBadgeDelegate {
     /// If this method returns true, the landing page will displayed a cell that allows to access
@@ -340,6 +362,7 @@ import HealthKit
                     
                     switch(preDefinedElement.type){
                     //Device permissions
+                        #if CORELOCATION
                     case .location :
                         preDefinedElement.statusClosure = {
                             return ![CLAuthorizationStatus.denied,
@@ -348,7 +371,9 @@ import HealthKit
                                 .contains(CLLocationManager.authorizationStatus())
                         }
                         preDefinedElement.isConfigurable = CLLocationManager.authorizationStatus() != .notDetermined
+                        #endif
 
+                        #if CONTACTS
                     case .contacts :
                         preDefinedElement.statusClosure = {
                             return ![CNAuthorizationStatus.denied,
@@ -357,7 +382,9 @@ import HealthKit
                                 .contains(CNContactStore.authorizationStatus(for: CNEntityType.contacts))
                         }
                         preDefinedElement.isConfigurable = true
-                        
+                        #endif
+
+                        #if PHOTOS
                     case .photoLibrary :
                         preDefinedElement.statusClosure = {
                             return ![PHAuthorizationStatus.denied,
@@ -366,7 +393,9 @@ import HealthKit
                                 .contains(PHPhotoLibrary.authorizationStatus())
                         }
                         preDefinedElement.isConfigurable = PHPhotoLibrary.authorizationStatus() != .notDetermined
+                        #endif
 
+                        #if MEDIAPLAYER
                     case .media:
                         preDefinedElement.statusClosure = {
                             if #available(iOS 9.3, *) {
@@ -383,27 +412,36 @@ import HealthKit
                         } else {
                             preDefinedElement.isConfigurable = true
                         }
-
+                        #endif
+                        
+                        #if EVENTKIT
                     case .calendar :
                         preDefinedElement.statusClosure = {
                             return EKEventStore.authorizationStatus(for: EKEntityType.event) == EKAuthorizationStatus.authorized
                         }
                         preDefinedElement.isConfigurable = true
-                    
+                        #endif
+
+                        #if CAMERA
                     case .camera :
                         preDefinedElement.statusClosure = {
                             return ![AVAuthorizationStatus.denied,
                                      AVAuthorizationStatus.notDetermined,
                                      AVAuthorizationStatus.restricted]
-                                .contains(AVCaptureDevice.authorizationStatus(for: AVMediaType.video))}
+                                .contains(AVCaptureDevice.authorizationStatus(for: AVMediaType.video))
+                            }
                         preDefinedElement.isConfigurable = AVCaptureDevice.authorizationStatus(for: AVMediaType.video) != .notDetermined
+                        #endif
 
+                        #if EVENTKIT
                     case .reminders :
                         preDefinedElement.statusClosure = {
                             return EKEventStore.authorizationStatus(for: EKEntityType.reminder) == EKAuthorizationStatus.authorized
                         }
                         preDefinedElement.isConfigurable = true
-                    
+                        #endif
+
+                        #if BLUETHOOTH
                     case .bluetoothSharing:
                         preDefinedElement.statusClosure = {
                             return ![CBPeripheralManagerAuthorizationStatus.denied,
@@ -411,12 +449,17 @@ import HealthKit
                                      CBPeripheralManagerAuthorizationStatus.restricted].contains(CBPeripheralManager.authorizationStatus())
                         }
                         preDefinedElement.isConfigurable = true
-
+                        #endif
+                        
+                        #if MICROPHONE
                     case .microphone :
                         preDefinedElement.statusClosure = {
-                            return ![AVAudioSession.RecordPermission.denied,AVAudioSession.RecordPermission.undetermined].contains(AVAudioSession.sharedInstance().recordPermission)}
+                            return ![AVAudioSession.RecordPermission.denied,AVAudioSession.RecordPermission.undetermined].contains(AVAudioSession.sharedInstance().recordPermission)
+                            }
                         preDefinedElement.isConfigurable = true
-                    
+                        #endif
+
+                        #if SPEECH
                     case .speechRecognition:
                         if #available(iOS 10.0, *) {
                             preDefinedElement.statusClosure = {
@@ -426,15 +469,21 @@ import HealthKit
                             }
                             preDefinedElement.isConfigurable = true
                         }
-                        
+                        #endif
+
+                        #if HEALTHKIT
                     case .health:
                         preDefinedElement.statusClosure = (TrustBadge.shared.config?.isHealfDataUsed)!
                         preDefinedElement.isConfigurable = true
+                        #endif
 
+                        #if HOMEKIT
                     case .homekit:
                         preDefinedElement.statusClosure = (TrustBadge.shared.config?.isHomeKitUsed)!
                         preDefinedElement.isConfigurable = true
+                        #endif
 
+                        #if MOTION
                     case .motionFitness:
                         if #available(iOS 11, *) {
                             preDefinedElement.statusClosure = {
@@ -448,6 +497,7 @@ import HealthKit
                         }
                         
                         preDefinedElement.isConfigurable = true
+                        #endif
 
                     //Application data
                     case .accountInformations:
@@ -467,6 +517,7 @@ import HealthKit
                         preDefinedElement.statusClosure = (TrustBadge.shared.config?.isTrackingEnabled)!
                         preDefinedElement.toggleClosure = (TrustBadge.shared.config?.updateTracking)!
                         
+                        #if USERNOTIFICATIONS
                     case .notifications:
                         if #available(iOS 10.0, *) {
                             preDefinedElement.statusClosure = {
@@ -482,6 +533,11 @@ import HealthKit
                             }
                         }
                         preDefinedElement.isConfigurable = true
+                        #endif
+
+                    default:
+                        preDefinedElement.isConfigurable = false
+                        preDefinedElement.statusClosure = { return false }
                     }
                 }
             }

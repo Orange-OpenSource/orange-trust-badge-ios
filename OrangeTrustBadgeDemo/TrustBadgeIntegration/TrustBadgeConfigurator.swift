@@ -8,7 +8,9 @@
 
 import Foundation
 import OrangeTrustBadge
+#if HEALTHKIT
 import HealthKit
+#endif
 
 //MARK: TrustBadge integration
 extension ViewController {
@@ -33,6 +35,7 @@ extension ViewController {
         
         
         // Comment this section if your app do not use health permission
+        #if HEALTHKIT
         if PersonalData.shared.configuredDevicePermissions.contains(.health) {
             config.isHealfDataUsed = {
                 // get the current Status of user's health data access
@@ -43,8 +46,10 @@ extension ViewController {
                 return objectType == nil ? false : true
             }
         }
-        
+        #endif
+
         // Comment this section if your app do not use homekit
+        #if HOMEKIT
         if PersonalData.shared.configuredDevicePermissions.contains(.homekit) {
             config.isHomeKitUsed = { // get the current Status of user's homekit data access
                 // consider the user have create a home and you can access it
@@ -52,7 +57,8 @@ extension ViewController {
                 return PersonalData.shared.homeManager.primaryHome != nil
             }
         }
-        
+        #endif
+
         // Comment this section if your app do not use motion activity & fitness permission
         if PersonalData.shared.configuredDevicePermissions.contains(.motionFitness) {
             if #available(iOS 11, *) {} else { // on iOS < 11 only use isMotionFitnessUsed

@@ -77,6 +77,29 @@ source 'https://github.com/CocoaPods/Specs.git'
 pod 'OrangeTrustBadge'
 ```
 
+
+```
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '4.2'
+      config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['$(inherited)']
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DCORELOCATION'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DPHOTOS'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DCONTACTS'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DMEDIAPLAYER'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DCAMERA'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DEVENTKIT'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DBLUETOOTH'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DSPEECH'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DUSERNOTIFICATIONS'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DMOTION'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DHEALTHKIT'
+      config.build_settings['OTHER_SWIFT_FLAGS'] << '-DHOMEKIT'
+    end
+  end
+end
+```
 Then, run the following command:
 
 ```bash
@@ -355,7 +378,24 @@ foo.bar@example.com
 Some tokens will be available over time, but for the moment you can only use $$applicationName$$, configurable by using the appName field of TrustBadgeConfig (Default : CFBundleDisplayName or CFBundleName of host app)
 
 ## Submitting your app for the App Store
-In order to pass the App Store validation you must declare all the following keys in the Info.plist of your app.
+In order to pass the App Store validation you must declare only the permissions that your app effectively use therefore Apple may reject your app.
+
+So OrangeTrustBadge compiles and use some frameworks only if some SWITF_FLAGS are set.
+
+| SWIFT_FLAG  | Framework used | Permission     |
+| :---        |    :----:   |          ---: |
+|CORELOCATION | CoreLocation| Location
+|PHOTOS| Photos | Photos | Photos Library
+|CONTACTS| EventKit | Calendar, Reminders
+|MEDIAPLAYER | MediaPlayer | Media
+|CAMERA |
+|EVENTKIT
+|BLUETOOTH
+|SPEECH
+|USERNOTIFICATIONS
+|MOTION
+|HEALTHKIT
+|HOMEKIT
 
 Here is an example of what your app InfoPlist.string file would look like.
 

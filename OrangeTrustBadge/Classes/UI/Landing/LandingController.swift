@@ -22,16 +22,39 @@
 */
 
 import UIKit
+#if CORELOCATION
 import CoreLocation
+#endif
+#if CONTACTS
 import Contacts
+#endif
+#if PHOTOS
 import Photos
+#endif
+#if MEDIAPLAYER || CAMERA
 import MediaPlayer
+#endif
+#if EVENTKIT
 import EventKit
+#endif
+#if BLUETOOTH
 import CoreBluetooth
+#endif
+#if MICROPHONE
 import AVFoundation
+#endif
+#if SPEECH
 import Speech
+#endif
+#if USERNOTIFICATIONS
 import UserNotifications
+#endif
+#if MOTION
 import CoreMotion
+#endif
+#if HEALTHKIT
+import HealthKit
+#endif
 
 class LandingController: UITableViewController {
     
@@ -304,49 +327,79 @@ class LandingController: UITableViewController {
 extension PreDefinedElement {
     var isPermissionRequested: Bool {
         switch type {
+
+            #if CORELOCATION
         case .location:
             return CLLocationManager.authorizationStatus() != .notDetermined
-        
+            #endif
+            
+            #if CONTACTS
         case .contacts:
             return CNContactStore.authorizationStatus(for: CNEntityType.contacts) != .notDetermined
-        
+            #endif
+            
+            #if PHOTOS
         case .photoLibrary:
             return PHPhotoLibrary.authorizationStatus() != .notDetermined
-        
+            #endif
+            
+            #if MEDIAPLAYER
         case .media:
             if #available(iOS 9.3, *) {
                 return MPMediaLibrary.authorizationStatus() != .notDetermined
             } else {
                 return false
             }
-        
+            #endif
+            
+            #if EVENTKIT
         case .calendar:
             return EKEventStore.authorizationStatus(for: EKEntityType.event) != .notDetermined
-        
+            #endif
+
+            #if CAMERA
         case .camera:
             return AVCaptureDevice.authorizationStatus(for: AVMediaType.video) != .notDetermined
-        
+            #endif
+            
+            #if EVENTKIT
         case .reminders:
             return EKEventStore.authorizationStatus(for: EKEntityType.reminder) != .notDetermined
-        
+            #endif
+            
+            #if BLUETOOTH
         case .bluetoothSharing:
             return CBPeripheralManager.authorizationStatus() != .notDetermined
-        
+            #endif
+            
+            #if MICROPHONE
         case .microphone:
             return AVAudioSession.sharedInstance().recordPermission != .undetermined
-        
+            #endif
+            
+            #if SPEECH
         case .speechRecognition:
             if #available(iOS 10.0, *) {
+                #if SPEECH
                 return SFSpeechRecognizer.authorizationStatus() != .notDetermined
+                #else
+                return false
+                #endif
             } else {
                 return false
             }
+            #endif
+            
+            #if MOTION
         case .motionFitness:
             if #available(iOS 11, *) {
                 return CMMotionActivityManager.authorizationStatus() != .notDetermined
             } else {
                 return statusClosure()
             }
+            #endif
+
+            #if USERNOTIFICATIONS
         case .notifications:
             var status = false
             if #available(iOS 10.0, *) {
@@ -362,6 +415,8 @@ extension PreDefinedElement {
                 return statusClosure()
             }
             return status
+            #endif
+            
         default:
             return statusClosure()
         }
