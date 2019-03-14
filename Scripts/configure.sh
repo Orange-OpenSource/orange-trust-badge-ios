@@ -1,27 +1,29 @@
-#!/bin/sh -x
+#!/bin/sh 
 
-echo "Configuring compilation"
-echo $PWD
-#echo $GCC_PREPROCESSOR_DEFINITIONS | grep COCOAPODS
-#if [ $? == 0 ]
-#then
-#    echo "Cocoapods integration"
-#    echo "The compilation is already configured by your Podfile"
-#    exit 0
-#fi
+echo "Configuring OTHER_SWIFT_FLAGS build setting"
+echo $GCC_PREPROCESSOR_DEFINITIONS | grep COCOAPODS
+if [ $? == 0 ]
+then
+    echo "Cocoapods integration"
+    echo "The compilation is already configured by your Podfile"
+    exit 0
+fi
+
+
+TRUSTBADGE_DIR=$PWD
 
 # Testing Carthage
-if [ -d ../Carthage/Checkout ]
+if [ -d ../../../Carthage ]
 then
-    APP_ROOT_PATH="../Carthage/Checkout"
+    cd ../../..
 fi
 
 # Looking for InfoPlist.String
-INFOPLIST_STRING=`find $PWD/$APP_ROOT_PATH -name InfoPlist.strings`
-if [ $? != 0 ]
+INFOPLIST_STRING=`find . -type f -name InfoPlist.strings | grep -v Carthage`
+if [ x$INFOPLIST_STRING == x ]
 then
     echo "Your app doesn't contains any InfoPlist.strings file. You must provide one to integrate OrangeTrustBadge. See https://github.com/Orange-OpenSource/orange-trust-badge-ios/blob/master/README.md"
-    exit 1
+#exit 2
 fi
 
 # Configure conditional compilation
@@ -109,6 +111,6 @@ then
 fi
 
 
-
+cd $TRUSTBADGE_DIR
 
 sed -i -e "s/.*OTHER_SWIFT_FLAGS.*/OTHER_SWIFT_FLAGS = \"$TRUSTBADGE_FLAGS\";/" OrangeTrustBadge.xcodeproj/project.pbxproj

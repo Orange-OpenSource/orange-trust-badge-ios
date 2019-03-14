@@ -112,7 +112,7 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
-### Carthage
+### <a name="carthage"></a>Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
@@ -127,10 +127,14 @@ To integrate OrangeTrustBadge into your Xcode project using Carthage, specify it
 
 >github "Orange-OpenSource/orange-trust-badge-ios" ~> 1.1
 
-Run carthage update to build the framework and drag the built OrangeTrustBadge.framework into your Xcode project.
+Run the following commands to configure then build the framework. Drag the built OrangeTrustBadge.framework into your Xcode project.
 
 ```bash
-$ carthage update --platform iOS 
+$ carthage checkout orange-trust-badge-ios
+$ cd Carthage/Checkouts/orange-trust-badge-ios/
+$ ./Scripts/configure.sh
+$ cd -
+$ carthage build orange-trust-badge-ios
 ```
 
 ### Manually
@@ -221,12 +225,15 @@ So OrangeTrustBadge compiles and uses only the needed frameworks by setting the 
 |HEALTHKIT | HeakthKit | HealthKit
 |HOMEKIT | HomeKit | HomeKit
 
+##### Configure the badge compilation for Cocoapods
+If you use Cocoapods, use a ***post_install directive*** to configure the badge. See the section [Cocoapods](#cocoapods) above.
 
-If you use Cocoapods, use a ***post_install directive*** to configure the badge. see the section [Cocoapods](#cocoapods) above.
-
-If you use Carthage, OrangeTrustBadge will be automaticaly configured. What you have defined in the ***InfoPlist.strings*** of your project will be used to set the **OTHER\_SWIFT\_FLAGS** build setting with the right values.
+##### Configure the badge compilation for Carthage
+If you use Carthage, The script name **configure.sh** provided with OrangeTrustBadge will be automaticaly configured the framework. What you have defined in the ***InfoPlist.strings*** of your project will be used to set the **OTHER\_SWIFT\_FLAGS** build setting with the right values.
 
 eg: If you define **NSContactsUsageDescription** in the InfoPlist.strings of your project then OrangeTrustBadge will add the flag ```-DCONTACTS``` in the **OTHER\_SWIFT\_FLAGS** build setting.
+See the section [Carthage](#carthage) above.
+
 
 Here is an example of what your app InfoPlist.string file would look like.
 
