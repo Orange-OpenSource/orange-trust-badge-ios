@@ -11,7 +11,7 @@ Orange trust badge displays how are handled the following device permissions :
 - Contacts
 - Photos Library
 - Media
-- Usage data
+- Camera
 - Calendar
 - Reminders
 - Microphone
@@ -214,11 +214,12 @@ So OrangeTrustBadge compiles and uses only the needed frameworks by setting the 
 | :---        |    :----:   |          ---: |
 |CORELOCATION | CoreLocation| Location
 |PHOTOS| Photos | Photos | Photos Library
-|CONTACTS| EventKit | Calendar, Reminders
+|CONTACTS| Contacts | Contacts
 |MEDIAPLAYER | MediaPlayer | Media
-|CAMERA | MediaPlayer | Media
+|CAMERA | MediaPlayer | Camera
 |EVENTKIT | EventKit | Calendar, Reminders
 |BLUETOOTH | CoreBluetooth | Bluetooth Sharing
+|MICROPHONE | AVFoundation | Microphone
 |SPEECH | Speech | Speech Recognition
 |USERNOTIFICATIONS | UserNotifications | Notifications
 |MOTION | CoreMotion | Motion Activity & Fitness
