@@ -441,7 +441,7 @@ import HealthKit
                         preDefinedElement.isConfigurable = true
                         #endif
 
-                        #if BLUETHOOTH
+                        #if BLUETOOTH
                     case .bluetoothSharing:
                         preDefinedElement.statusClosure = {
                             return ![CBPeripheralManagerAuthorizationStatus.denied,
