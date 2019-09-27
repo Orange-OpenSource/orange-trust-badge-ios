@@ -114,7 +114,8 @@ class DevicePermissionsController: UITableViewController {
         }()
         
         cell.statusLabel.text = TrustBadge.shared.localizedString(statusKey)
-        cell.statusLabel.textColor = element.statusClosure() ? TrustBadge.shared.config?.highlightColor : UIColor.black
+        cell.statusLabel.textColor = element.statusClosure() ? TrustBadge.shared.config?.highlightColor : .defaultTextColor
+        
         cell.icon.image = element.statusClosure() ? TrustBadge.shared.loadImage(element.statusEnabledIconName) : TrustBadge.shared.loadImage(element.statusDisabledIconName)
         
         let key = (element as! PreDefinedElement).type == .health ? "update-health-permission" : "update-permission"
@@ -195,7 +196,7 @@ class DevicePermissionsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.textLabel!.textColor = UIColor.black
+        header.textLabel!.textColor = .defaultTextColor
     }
     
     // MARK: - Other Methods

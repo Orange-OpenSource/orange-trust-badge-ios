@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,11 +13,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xzN-ml-KuV" id="mDP-oq-8Ey">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="129.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permission-identity-disabled-icon" translatesAutoresizingMaskIntoConstraints="NO" id="39D-8f-HzI" userLabel="Icon">
                         <rect key="frame" x="15" y="15" width="29" height="29"/>
+                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="AFk-g5-RY0"/>
                             <constraint firstAttribute="height" constant="29" id="pnK-SE-1yZ"/>
@@ -31,7 +30,6 @@
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="OvF-aX-Syc"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="OUI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BG-QW-KD4">
@@ -42,18 +40,18 @@
                             <constraint firstAttribute="width" priority="750" constant="50" id="QxR-Dk-ABF"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_expand_more" translatesAutoresizingMaskIntoConstraints="NO" id="8Cp-xE-Eno" userLabel="Disclosure indicator">
                         <rect key="frame" x="559" y="17" width="24" height="24"/>
+                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="S5e-Ba-pQG"/>
                             <constraint firstAttribute="height" constant="24" id="dqf-Zh-wsc"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itP-6l-3lW">
-                        <rect key="frame" x="15" y="83" width="558" height="46"/>
+                        <rect key="frame" x="15" y="84" width="558" height="46"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEk-dg-y8d">
                                 <rect key="frame" x="10" y="7" width="496" height="30"/>
@@ -70,14 +68,14 @@
                             </button>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oe9-pS-L6s" userLabel="Upper separator">
                                 <rect key="frame" x="0.0" y="0.0" width="538" height="1"/>
-                                <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="kQS-6P-Tga"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yB-GD-4gV" userLabel="Upper separator">
                                 <rect key="frame" x="0.0" y="45" width="538" height="1"/>
-                                <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="hr0-H5-3aM"/>
                                 </constraints>
@@ -90,7 +88,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IuK-fQ-qCW" secondAttribute="trailing" constant="20" id="669-9t-3bC"/>
                             <constraint firstItem="oe9-pS-L6s" firstAttribute="leading" secondItem="itP-6l-3lW" secondAttribute="leading" id="7h9-ag-9uV"/>
@@ -117,19 +115,12 @@
                             <action selector="toggleSwitch" destination="xzN-ml-KuV" eventType="valueChanged" id="m9k-tX-YSb"/>
                         </connections>
                     </switch>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIc-Rt-8e7">
-                        <rect key="frame" x="59" y="53" width="492" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIc-Rt-8e7">
+                        <rect key="frame" x="59" y="53" width="492" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="250" constant="17" id="WE2-XE-els"/>
                         </constraints>
-                        <attributedString key="attributedText">
-                            <fragment content="Label">
-                                <attributes>
-                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" metaFont="system" size="14"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

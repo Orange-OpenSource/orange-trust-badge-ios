@@ -150,8 +150,14 @@ class PermissionRequesterViewController: UIViewController, UITableViewDelegate, 
         let permission = indexPath.section == 0 ? permissions[indexPath.row] : applicationData[indexPath.row]
         let key = "landing-\(permission.name)-name"
         cell.textLabel?.text = NSLocalizedString(key, tableName: nil, bundle: bundle, value: "", comment: "")
-        cell.textLabel?.textColor = .black
-        cell.detailTextLabel?.textColor = .black
+        
+        if #available(iOS 13, *) {
+            cell.textLabel?.textColor = .label
+            cell.detailTextLabel?.textColor = .label
+        } else {
+            cell.textLabel?.textColor = .black
+            cell.detailTextLabel?.textColor = .black
+        }
         
         var permissionEnable = permission.isEnabled
         if !permission.isAuthorizationRequested {
@@ -247,7 +253,7 @@ class PermissionRequesterViewController: UIViewController, UITableViewDelegate, 
 
     // Override to support conditional editing of the table view.
     func tableView(_: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        var permission = indexPath.section == 0 ? permissions[indexPath.row] : applicationData[indexPath.row]
+        let permission = indexPath.section == 0 ? permissions[indexPath.row] : applicationData[indexPath.row]
         return !permission.isAuthorizationRequested
     }
     

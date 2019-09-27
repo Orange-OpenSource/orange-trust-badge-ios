@@ -8,6 +8,7 @@
 "NSSpeechRecognitionUsageDescription"="Cette application a demandé l'accès à la reconnaissance vocale. La reconnaissance vocale envoie vos enregistremenst vocaux à Apple pour traiter vos demandes.";
 "NSAppleMusicUsageDescription"="L'application a demandé l'accès à votre activité Musique et votre librairie de média.";
 "NSBluetoothPeripheralUsageDescription"="L'application peut échanger des données par Bluetooth.";
+"NSBluetoothAlwaysUsageDescription"="L'application peut échanger des données par Bluetooth.";
 "NSCalendarsUsageDescription"="Cette application peut exploiter les informations de l'agenda présents sur votre terminal, y compris pour consulter les évènements enregistrés.";
 "NSCameraUsageDescription"="Cette application peut utiliser l'appareil photo de votre appareil. L'accès à la caméra peut permettre à l'application d'effectuer les actions suivantes : prendre des photos, enregistrer des vidéos.";
 "NSContactsUsageDescription"="Cette application peut accéder, ajouter et/ou modifier les contacts de votre téléphone.";

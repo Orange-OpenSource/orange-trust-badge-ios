@@ -64,7 +64,7 @@ class ElementMenuCell: UITableViewCell,UICollectionViewDataSource,UICollectionVi
         
         if indexPath.row < ElementMenuCell.maxDisplayedElement {
             cell.status.text = TrustBadge.shared.localizedString(statusKey)
-            cell.status.textColor = element.statusClosure() ? TrustBadge.shared.config?.highlightColor : UIColor.black
+            cell.status.textColor = element.statusClosure() ? TrustBadge.shared.config?.highlightColor : .defaultTextColor
             let status = element.statusClosure() ? TrustBadge.shared.localizedString("accessibility-enabled") :  TrustBadge.shared.localizedString("accessibility-disabled")
             cell.accessibilityValue = "\(TrustBadge.shared.localizedString(element.nameKey)) : \(status)"
             cell.icon.image = element.statusClosure() ? TrustBadge.shared.loadImage(element.statusEnabledIconName) : TrustBadge.shared.loadImage(element.statusDisabledIconName)

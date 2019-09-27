@@ -22,3 +22,8 @@ span.p {
     display: block;
     margin-bottom:1em;
 }
+:body {
+    color-scheme: light dark;
+    --special-text-color: hsla(60, 100%, 50%, 0.5);
+    --border-color: black;
+}

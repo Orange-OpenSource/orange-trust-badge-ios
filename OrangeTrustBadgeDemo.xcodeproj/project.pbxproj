@@ -154,7 +154,7 @@
 				542B754F1C1F154C003C489A /* Sources */,
 				542B75501C1F154C003C489A /* Frameworks */,
 				542B75511C1F154C003C489A /* Resources */,
-				BC9BA53CEA59DAFB5B2CFED9 /* [CP] Embed Pods Frameworks */,
+				7B0CFDAD81F9C41AE1F96649 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,6 +230,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7B0CFDAD81F9C41AE1F96649 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OrangeTrustBadgeDemo/Pods-OrangeTrustBadgeDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OrangeTrustBadge/OrangeTrustBadge.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OrangeTrustBadge.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OrangeTrustBadgeDemo/Pods-OrangeTrustBadgeDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A0EA153E3D43A791B67A3CE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,24 +264,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BC9BA53CEA59DAFB5B2CFED9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OrangeTrustBadgeDemo/Pods-OrangeTrustBadgeDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/OrangeTrustBadge/OrangeTrustBadge.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OrangeTrustBadge.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OrangeTrustBadgeDemo/Pods-OrangeTrustBadgeDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -442,6 +442,7 @@
 				CODE_SIGN_ENTITLEMENTS = OrangeTrustBadgeDemo/OrangeTrustBadgeDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OrangeTrustBadgeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -464,6 +465,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OrangeTrustBadgeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

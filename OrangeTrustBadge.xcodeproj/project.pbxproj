@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -47,6 +47,7 @@
 		54BFCC451C2618BC00E05B67 /* ElementMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BFCC441C2618BC00E05B67 /* ElementMenuCell.swift */; };
 		54BFCC491C2618E300E05B67 /* TermsMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BFCC481C2618E300E05B67 /* TermsMenuCell.swift */; };
 		54C6FFD81CB6B345001ED15C /* DailymotionPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C6FFD71CB6B345001ED15C /* DailymotionPlayer.swift */; };
+		CDD68CEC9A2DB56296CD8AB3 /* Pods_OrangeTrustBadge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFA620737C03CA2FEB265CA /* Pods_OrangeTrustBadge.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		54BFCC481C2618E300E05B67 /* TermsMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsMenuCell.swift; sourceTree = "<group>"; };
 		54C6FFD71CB6B345001ED15C /* DailymotionPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailymotionPlayer.swift; sourceTree = "<group>"; };
 		A6D83C05F55B27EBAF1119FF /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BBEC881E42D1C42E0AEBD466 /* Pods-OrangeTrustBadge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeTrustBadge.release.xcconfig"; path = "Target Support Files/Pods-OrangeTrustBadge/Pods-OrangeTrustBadge.release.xcconfig"; sourceTree = "<group>"; };
+		F3201B587107275838488313 /* Pods-OrangeTrustBadge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrangeTrustBadge.debug.xcconfig"; path = "Target Support Files/Pods-OrangeTrustBadge/Pods-OrangeTrustBadge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD68CEC9A2DB56296CD8AB3 /* Pods_OrangeTrustBadge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +196,7 @@
 				542B75321C1F152D003C489A /* OrangeTrustBadge */,
 				542B75311C1F152D003C489A /* Products */,
 				E849856994018CB87CEA87F6 /* Frameworks */,
+				7C19C69C1E940D1F8C8FB0CB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,6 +230,15 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
+		7C19C69C1E940D1F8C8FB0CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3201B587107275838488313 /* Pods-OrangeTrustBadge.debug.xcconfig */,
+				BBEC881E42D1C42E0AEBD466 /* Pods-OrangeTrustBadge.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E849856994018CB87CEA87F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 542B75441C1F152D003C489A /* Build configuration list for PBXNativeTarget "OrangeTrustBadge" */;
 			buildPhases = (
+				CBD49820946CF43F3A2F6708 /* [CP] Check Pods Manifest.lock */,
 				542B752B1C1F152D003C489A /* Sources */,
 				542B752C1C1F152D003C489A /* Frameworks */,
 				542B752D1C1F152D003C489A /* Headers */,
@@ -272,7 +287,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Orange;
 				TargetAttributes = {
 					497C9D011CB68FFF00816CE5 = {
@@ -334,6 +349,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "Scripts/build-fat-framework.sh";
+		};
+		CBD49820946CF43F3A2F6708 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OrangeTrustBadge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -499,7 +536,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -510,10 +548,12 @@
 		};
 		542B75451C1F152D003C489A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3201B587107275838488313 /* Pods-OrangeTrustBadge.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -522,7 +562,11 @@
 				INFOPLIST_FILE = OrangeTrustBadge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.orange.omd.OrangeTrustBadge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,10 +577,12 @@
 		};
 		542B75461C1F152D003C489A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBEC881E42D1C42E0AEBD466 /* Pods-OrangeTrustBadge.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -545,7 +591,11 @@
 				INFOPLIST_FILE = OrangeTrustBadge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.orange.omd.OrangeTrustBadge;
 				PRODUCT_NAME = "$(TARGET_NAME)";

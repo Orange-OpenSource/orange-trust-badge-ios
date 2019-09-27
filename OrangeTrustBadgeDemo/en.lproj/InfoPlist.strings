@@ -8,6 +8,7 @@
 "NSSpeechRecognitionUsageDescription"="This application has requested access to speech recognition. Speech recognition sends recorded voice to Apple to process your requests.";
 "NSAppleMusicUsageDescription"="This application has requested access to your music activity and your media library.";
 "NSBluetoothPeripheralUsageDescription"="This application has the ability to share data via Bluetooth.";
+"NSBluetoothAlwaysUsageDescription"="This application has the ability to share data via Bluetooth.";
 "NSCalendarsUsageDescription"="This application can use the calendar information on your device, including consultation of recorded events.";
 "NSCameraUsageDescription"="This application can use the camera of your device. The camera access allows this application to take pictures and record video.";
 "NSContactsUsageDescription"="This application can access, add and / or change your phone contacts.";
@@ -21,3 +22,4 @@
 "NSMotionUsageDescription"="Fitness and health tracking allows apps to access sensor data, including body movement, steps count, and more.";
 "NSPhotoLibraryUsageDescription"="This application can use photos stored on your device. This permission allows the application to read, edit or delete stored files.";
 "NSRemindersUsageDescription"="This application can use the reminders information on your device, including consultation of recorded events.";
+

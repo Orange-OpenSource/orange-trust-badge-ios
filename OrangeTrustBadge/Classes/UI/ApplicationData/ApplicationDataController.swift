@@ -105,7 +105,7 @@ class ApplicationDataController: UITableViewController {
             }
         }()
         cell.statusLabel.text = TrustBadge.shared.localizedString(statusKey)
-        cell.statusLabel.textColor = element.statusClosure() ? TrustBadge.shared.config?.highlightColor : UIColor.black
+        cell.statusLabel.textColor = element.statusClosure() ? TrustBadge.shared.config?.highlightColor : UIColor.defaultTextColor
         cell.icon.image = element.statusClosure() ? TrustBadge.shared.loadImage(element.statusEnabledIconName) : TrustBadge.shared.loadImage(element.statusDisabledIconName)
         cell.actionButton.setTitle(TrustBadge.shared.localizedString("update-permission"), for: UIControl.State())
         

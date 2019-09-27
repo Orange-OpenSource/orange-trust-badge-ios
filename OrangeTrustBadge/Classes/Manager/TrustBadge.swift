@@ -73,7 +73,7 @@ import HealthKit
     
     
     /// (Optional) UIColor used to highlight element with a positive status (default black)
-    @objc open var highlightColor = UIColor.black
+    @objc open var highlightColor = UIColor.defaultTextColor
     
     /// (Optional) background UIColor of the header (default blue)
     @objc open var headerColor = UIColor(red: 57/256, green: 176/256, blue: 168/256, alpha: 1)
