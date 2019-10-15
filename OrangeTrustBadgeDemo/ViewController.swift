@@ -148,7 +148,7 @@ extension UINavigationBar {
 
         case .default:
             titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-            barTintColor = UIColor(red: 57/256, green: 176/256, blue: 168/256, alpha: 1)
+            barTintColor = UIColor(red: 57/255, green: 176/255, blue: 168/255, alpha: 1)
             tintColor = .black
             barStyle = .default
 
@@ -160,7 +160,7 @@ extension UINavigationBar {
 
         case .darkContent:
             titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-            barTintColor = UIColor(red: 57/256, green: 176/256, blue: 168/256, alpha: 1)
+            barTintColor = UIColor(red: 57/255, green: 176/255, blue: 168/255, alpha: 1)
             tintColor = .black
             barStyle = .default
 

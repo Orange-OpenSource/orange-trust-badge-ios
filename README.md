@@ -230,11 +230,16 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 ```swift
 import OrangeTrustBadge
 
-@IBAction func onButtonClicked(){
-	let storyboard = UIStoryboard(name: "OrangeTrustBadge", bundle: NSBundle(forClass: TrustBadge.self))
-	if let viewController = storyboard.instantiateInitialViewController() {
+@IBAction func presentBadge(sender: Any?) {
+	if let viewController = storyboard.instantiateInitialViewController() as? UISplitViewController {
+    	viewController.modalPresentationStyle = .fullScreen      		
     	self.present(viewController, animated: true, completion: nil)
-    }
+
+      	// Uncomment this section if you want change the navigationBar Appearance
+      	// and adopt a status bar style (.lightContent or .default)
+      	let navigationController = viewController.viewControllers[0] as! UINavigationController
+     	navigationController.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
+	}
 }
 ```
 **Push the badge**
@@ -242,13 +247,65 @@ import OrangeTrustBadge
 ```swift
 import OrangeTrustBadge
 
-@IBAction func onButtonClicked(){
-	let storyboard = UIStoryboard(name: "OrangeTrustBadge", bundle: NSBundle(forClass: TrustBadge.self))
-	let viewController = storyboard.instantiateViewController(withIdentifier: "LandingController")
-    self.navigationController?.pushViewController(viewController, animated: true)
+@IBAction func pushBadge(sender: Any?) {
+	 let viewController = storyboard.instantiateViewController(withIdentifier: "LandingController")
+     self.navigationController?.pushViewController(viewController, animated: true)
+
+     // Uncomment this section if you want change the navigationBar Appearance
+     // and adopt a status bar style (.lightContent or .default)
+     self.navigationController?.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
 }
 ```
 
+**Setting up the navigationBar and the statusBar appearance**
+
+```swift
+
+extension UINavigationBar {
+    
+     func setAppearance(for statusBarStyle: UIStatusBarStyle) {
+        // remove the shadow image at the bottom of the navbar
+        setBackgroundImage(UIImage(), for: .default)
+        shadowImage = UIImage()
+        
+        var darkMode = false
+        
+        if #available(iOS 12.0, *) {
+            darkMode = traitCollection.userInterfaceStyle == .dark
+        }
+        
+        // for lightContent
+        switch statusBarStyle {
+        case .default where darkMode == true:
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            barTintColor = nil
+            tintColor = .white
+            barStyle = .black
+
+        case .default:
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            barTintColor = UIColor(red: 57/255, green: 176/255, blue: 168/255, alpha: 1)
+            tintColor = .black
+            barStyle = .default
+
+        case .lightContent:
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            barTintColor = nil
+            tintColor = .white
+            barStyle = .black
+
+        case .darkContent:
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            barTintColor = UIColor(red: 57/255, green: 176/255, blue: 168/255, alpha: 1)
+            tintColor = .black
+            barStyle = .default
+
+        @unknown default:
+            break
+        }
+    }
+}
+```
 
 That's it !
 
