@@ -145,7 +145,7 @@ extension ViewController {
         //config.highlightColor = UIColor.orangeColor()
         
         // uncomment this section to change the status bar style
-        config.statusBarStyle = .lightContent
+        config.statusBarStyle = .default
         
         // uncomment this section to change header logo
         //config.headerLogo = UIImage(named:"my-logo")
@@ -153,6 +153,8 @@ extension ViewController {
         // uncomment this section to change header text color
         //config.headerTextColor = .red        
         
+        // uncomment this section to change header color
+        //config.headerColor = .blue
         
         // finally, initialize TrustBadgeManager with our configuration
         TrustBadge.with(config)

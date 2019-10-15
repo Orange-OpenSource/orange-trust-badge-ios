@@ -129,6 +129,11 @@ class PermissionRequesterViewController: UIViewController, UITableViewDelegate, 
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
+    }
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {

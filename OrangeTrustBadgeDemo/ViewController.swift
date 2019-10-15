@@ -72,6 +72,11 @@ class ViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
+    }
+    
     func startDemo() {
         
         /// setup the badge
@@ -87,13 +92,26 @@ class ViewController: UIViewController {
                 self.present(viewController, animated: true, completion: nil)
             }
         } else {
+            
             // Uncomment this section if you want TrustBage to be presented modally or on an iPad
-            //if let viewController = storyboard.instantiateInitialViewController() {
-            //  self.present(viewController, animated: true, completion: nil)
-            //}
+             if let viewController = storyboard.instantiateInitialViewController() as? UISplitViewController {
+                viewController.modalPresentationStyle = .fullScreen
+                self.present(viewController, animated: true, completion: nil)
+
+                // Uncomment this section if you want change the navigationBar Appearance
+                // and adopt a status bar style (.lightContent or .default)
+                let navigationController = viewController.viewControllers[0] as! UINavigationController
+                navigationController.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
+            }
+            
+            
             // Uncomment this section if you want TrustBage to be pushed
-            let viewController = storyboard.instantiateViewController(withIdentifier: "LandingController")
-            self.navigationController?.pushViewController(viewController, animated: true)
+            // let viewController = storyboard.instantiateViewController(withIdentifier: "LandingController")
+            // self.navigationController?.pushViewController(viewController, animated: true)
+
+            // Uncomment this section if you want change the navigationBar Appearance
+            // and adopt a status bar style (.lightContent or .default)
+            // navigationController?.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
         }
     }
     
@@ -103,6 +121,51 @@ class ViewController: UIViewController {
             viewController.delegate = self
         } else if let viewController = segue.destination as? PermissionRequesterViewController {
             viewController.delegate = self
+        }
+    }
+}
+
+extension UINavigationBar {
+    
+     func setAppearance(for statusBarStyle: UIStatusBarStyle) {
+        // remove the shadow image at the bottom of the navbar
+        setBackgroundImage(UIImage(), for: .default)
+        shadowImage = UIImage()
+        
+        var darkMode = false
+        
+        if #available(iOS 12.0, *) {
+            darkMode = traitCollection.userInterfaceStyle == .dark
+        }
+        
+        // for lightContent
+        switch statusBarStyle {
+        case .default where darkMode == true:
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            barTintColor = nil
+            tintColor = .white
+            barStyle = .black
+
+        case .default:
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            barTintColor = UIColor(red: 57/256, green: 176/256, blue: 168/256, alpha: 1)
+            tintColor = .black
+            barStyle = .default
+
+        case .lightContent:
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            barTintColor = nil
+            tintColor = .white
+            barStyle = .black
+
+        case .darkContent:
+            titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            barTintColor = UIColor(red: 57/256, green: 176/256, blue: 168/256, alpha: 1)
+            tintColor = .black
+            barStyle = .default
+
+        @unknown default:
+            break
         }
     }
 }
