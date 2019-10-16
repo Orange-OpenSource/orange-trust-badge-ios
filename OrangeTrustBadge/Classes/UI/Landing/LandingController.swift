@@ -225,6 +225,11 @@ class LandingController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if UIDevice.current.userInterfaceIdiom == .phone,
+            presentingViewController == nil {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
         switch indexPath.row {
         case 0 where UI_USER_INTERFACE_IDIOM() == .phone :
             if TrustBadge.shared.devicePermissions.count > 0 {

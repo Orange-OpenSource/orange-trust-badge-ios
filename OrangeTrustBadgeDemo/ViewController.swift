@@ -58,6 +58,11 @@ import CoreMotion
 import HealthKit
 #endif
 
+enum PresentationStyle {
+    case modal
+    case push
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var versionLabel : UILabel!
@@ -77,7 +82,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
     }
     
-    func startDemo() {
+    func startDemo(presentationStyle: PresentationStyle = .modal) {
         
         /// setup the badge
         self.setupTrustBadge()
@@ -91,27 +96,26 @@ class ViewController: UIViewController {
             if let viewController = storyboard.instantiateInitialViewController(){
                 self.present(viewController, animated: true, completion: nil)
             }
-        } else {
-            
+        } else if presentationStyle == .modal {
             // Uncomment this section if you want TrustBage to be presented modally or on an iPad
-             if let viewController = storyboard.instantiateInitialViewController() as? UISplitViewController {
+            if let viewController = storyboard.instantiateInitialViewController() as? UISplitViewController {
                 viewController.modalPresentationStyle = .fullScreen
                 self.present(viewController, animated: true, completion: nil)
-
+                
                 // Uncomment this section if you want change the navigationBar Appearance
                 // and adopt a status bar style (.lightContent or .default)
                 let navigationController = viewController.viewControllers[0] as! UINavigationController
                 navigationController.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
             }
-            
+        } else {
             
             // Uncomment this section if you want TrustBage to be pushed
-            // let viewController = storyboard.instantiateViewController(withIdentifier: "LandingController")
-            // self.navigationController?.pushViewController(viewController, animated: true)
-
+            let viewController = storyboard.instantiateViewController(withIdentifier: "LandingController")
+            self.navigationController?.pushViewController(viewController, animated: true)
+            
             // Uncomment this section if you want change the navigationBar Appearance
             // and adopt a status bar style (.lightContent or .default)
-            // navigationController?.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
+            navigationController?.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
         }
     }
     

@@ -86,7 +86,7 @@ extension ViewController: PermissionRequesterDelegate {
         }
     }
     #endif
-
+    
     // Request photoLibrary authorization
     #if PHOTOS
     public func requestPhotoLibraryAuthorization(completionHandler: @escaping ()->Void) {
@@ -149,7 +149,7 @@ extension ViewController: PermissionRequesterDelegate {
         completionHandler()
     }
     #endif
-
+    
     
     // Request Access to UserLocation in order to show them in iOS Preferences Panel
     #if CORELOCATION
@@ -184,8 +184,19 @@ extension ViewController: PermissionRequesterDelegate {
         }
     }
     #endif
-
+    
     func didFinishPerformRequests() {
-        startDemo()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            startDemo()
+        } else {
+            let alertController = UIAlertController(title: "Presentaion style", message: "TrustBadge can be presented as Modal or pushed for a horizontal navigation.", preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "Present as modal ", style: .default, handler: { (action) in
+                self.startDemo()
+            }))
+            alertController.addAction(UIAlertAction(title: "Push", style: .default, handler: { (action) in
+                self.startDemo(presentationStyle: .push)
+            }))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
