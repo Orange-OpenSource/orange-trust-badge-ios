@@ -225,7 +225,7 @@
                                 <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="9ji-V9-7Wc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="landing-header-appname" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDE-nb-NHS">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="landing-header-appname" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDE-nb-NHS">
                                             <rect key="frame" x="15" y="15" width="257" height="20.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
