@@ -102,6 +102,7 @@ class ViewController: UIViewController {
                 viewController.modalPresentationStyle = .fullScreen
                 self.present(viewController, animated: true, completion: nil)
                 
+
                 // Uncomment this section if you want change the navigationBar Appearance
                 // and adopt a status bar style (.lightContent or .default)
                 let navigationController = viewController.viewControllers[0] as! UINavigationController
