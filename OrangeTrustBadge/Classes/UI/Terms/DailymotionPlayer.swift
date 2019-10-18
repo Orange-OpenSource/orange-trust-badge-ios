@@ -22,8 +22,9 @@
  */
 
 import Foundation
+import WebKit
 
-open class DailymotionPlayer : UIWebView, UIWebViewDelegate {
+open class DailymotionPlayer : WKWebView, WKNavigationDelegate {
     
     static let DMAPIVersion = "2.9.3"
     
@@ -35,7 +36,7 @@ open class DailymotionPlayer : UIWebView, UIWebViewDelegate {
     }
     
     open func load(_ video : String){
-        self.delegate = self
+        self.navigationDelegate = self
         
         // Remote white default background
         self.isOpaque = false
@@ -58,23 +59,15 @@ open class DailymotionPlayer : UIWebView, UIWebViewDelegate {
         
         url = url + String(format: "&app=%@", appName!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
-        self.loadRequest(URLRequest(url: URL(string: url)!))
+        self.load(URLRequest(url: URL(string: url)!))
     }
     
     deinit{
-        self.delegate = nil
+        self.navigationDelegate = nil
         self.stopLoading()
     }
     
     open func pause(){
-        self.stringByEvaluatingJavaScript(from: "player.api(\"pause\", \"null\")")
-    }
-    
-    open func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-        if let isInitialURL = request.url?.path.hasPrefix("/embed/video/"){
-            return isInitialURL
-        } else {
-            return false
-        }
-    }
+        self.evaluateJavaScript("player.api(\"pause\", \"null\")")
+    }    
 }
