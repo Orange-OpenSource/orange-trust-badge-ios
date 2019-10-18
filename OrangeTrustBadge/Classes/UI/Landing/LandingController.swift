@@ -224,6 +224,23 @@ class LandingController: UITableViewController {
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let navigationController = segue.destination as? UINavigationController,
+            navigationController != self.navigationController,
+            let navigationBar = self.navigationController?.navigationBar {
+            
+            navigationController.modalPresentationStyle = TrustBadge.shared.config?.modalPresentationStyle ?? .pageSheet
+            let destinationNavigationBar = navigationController.navigationBar
+            
+            destinationNavigationBar.barTintColor = navigationBar.barTintColor
+            destinationNavigationBar.titleTextAttributes = navigationBar.titleTextAttributes
+            destinationNavigationBar.barTintColor = navigationBar.barTintColor
+            destinationNavigationBar.tintColor = navigationBar.tintColor
+            destinationNavigationBar.barStyle = navigationBar.barStyle
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if UIDevice.current.userInterfaceIdiom == .phone,
             presentingViewController == nil {

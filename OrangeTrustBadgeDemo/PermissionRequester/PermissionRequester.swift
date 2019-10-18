@@ -185,18 +185,36 @@ extension ViewController: PermissionRequesterDelegate {
     }
     #endif
     
+    @objc func selectStatusBarStyle(_ sender: UISegmentedControl) {
+        statusBarStyle = sender.selectedSegmentIndex == 0 ? .default : .lightContent
+    }
+    
     func didFinishPerformRequests() {
         if UIDevice.current.userInterfaceIdiom == .pad {
             startDemo()
         } else {
-            let alertController = UIAlertController(title: "Presentaion style", message: "TrustBadge can be presented as Modal or pushed for a horizontal navigation.", preferredStyle: .actionSheet)
+            
+            let alertController = UIAlertController(title: "Presentaion style", message: "TrustBadge can be presented as Modal or pushed for a horizontal navigation.\n\nStatusBar Style:\n\n\n", preferredStyle: .actionSheet)
             alertController.addAction(UIAlertAction(title: "Present as modal ", style: .default, handler: { (action) in
                 self.startDemo()
             }))
             alertController.addAction(UIAlertAction(title: "Push", style: .default, handler: { (action) in
                 self.startDemo(presentationStyle: .push)
             }))
-            self.present(alertController, animated: true, completion: nil)
+            
+            let segmentedControl = UISegmentedControl(items: ["default", "lightContent"])
+            segmentedControl.selectedSegmentIndex = 0
+            segmentedControl.alpha = 0
+            segmentedControl.addTarget(self, action: #selector(selectStatusBarStyle), for: .valueChanged)
+            alertController.view.addSubview(segmentedControl)
+            
+            self.present(alertController, animated: true) {
+
+                segmentedControl.center = CGPoint(x: alertController.view.frame.width/2, y: (alertController.view.frame.height/2)-10)
+                UIView.animate(withDuration: 0.6) {
+                    segmentedControl.alpha = 1
+                }
+            }
         }
     }
 }

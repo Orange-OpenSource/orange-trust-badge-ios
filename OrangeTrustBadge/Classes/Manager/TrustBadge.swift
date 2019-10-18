@@ -87,6 +87,9 @@ import HealthKit
     /// (Optional) Status bar style (default Application's default statusBarStyle)
     @objc open var statusBarStyle = UIApplication.shared.statusBarStyle
     
+    /// (Optional) modal presentation style (default to none)
+    @objc open var modalPresentationStyle = UIModalPresentationStyle.pageSheet
+
     /** (Optional) Closure giving Tracking (Data Usage Permission) status (enabled/disabled) (Default : disabled)
      
      Example :

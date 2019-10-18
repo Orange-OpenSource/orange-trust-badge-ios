@@ -66,6 +66,7 @@ enum PresentationStyle {
 class ViewController: UIViewController {
     
     @IBOutlet weak var versionLabel : UILabel!
+    var statusBarStyle: UIStatusBarStyle = .default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +86,7 @@ class ViewController: UIViewController {
     func startDemo(presentationStyle: PresentationStyle = .modal) {
         
         /// setup the badge
-        self.setupTrustBadge()
+        self.setupTrustBadge(statusBarStyle: statusBarStyle)
         
         // register self as a TrustBadgeDelegate for custom view controllers
         TrustBadge.shared.delegate = self
@@ -106,7 +107,7 @@ class ViewController: UIViewController {
                 // Uncomment this section if you want change the navigationBar Appearance
                 // and adopt a status bar style (.lightContent or .default)
                 let navigationController = viewController.viewControllers[0] as! UINavigationController
-                navigationController.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
+                navigationController.navigationBar.setAppearance(for: statusBarStyle)
             }
         } else {
             
@@ -116,7 +117,7 @@ class ViewController: UIViewController {
             
             // Uncomment this section if you want change the navigationBar Appearance
             // and adopt a status bar style (.lightContent or .default)
-            navigationController?.navigationBar.setAppearance(for: UIStatusBarStyle.lightContent)
+            navigationController?.navigationBar.setAppearance(for: statusBarStyle)
         }
     }
     

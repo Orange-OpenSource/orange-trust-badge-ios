@@ -17,7 +17,7 @@ extension ViewController {
     /*
      Setting up TrustBadge
      */
-    func setupTrustBadge() {
+    func setupTrustBadge(statusBarStyle: UIStatusBarStyle) {
         
         // Let's begin OrangeTrustBadge's integration
         let config = TrustBadgeConfig()
@@ -145,8 +145,11 @@ extension ViewController {
         //config.highlightColor = UIColor.orangeColor()
         
         // uncomment this section to change the status bar style
-        config.statusBarStyle = .default
+        config.statusBarStyle = statusBarStyle
         
+        // uncomment this section to change modal presentation style (iOS 13+)
+        config.modalPresentationStyle = .fullScreen
+
         // uncomment this section to change header logo
         //config.headerLogo = UIImage(named:"my-logo")
         
