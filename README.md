@@ -219,6 +219,11 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 }
 ```
 
+The **TrustBadgeConfig** class instance you've created is used by Orange TrustBadge at the runtime.
+
+See how to use it here: 
+[Setup TrustBadgeConfig](https://github.com/Orange-OpenSource/orange-trust-badge-ios/blob/master/OrangeTrustBadgeDemo/TrustBadgeIntegration/TrustBadgeConfigurator.swift)
+
 ### Add OrangeTrustBadge UI in your storyboard
 
 #### Using code (available on iOS 9 and later)
