@@ -130,7 +130,7 @@ To integrate OrangeTrustBadge into your Xcode project using Carthage, specify it
 Run the following commands to configure then build the framework. Drag the built OrangeTrustBadge.framework into your Xcode project.
 
 ```bash
-$ carthage checkout orange-trust-badge-ios
+$ carthage bootstrap orange-trust-badge-ios
 $ cd Carthage/Checkouts/orange-trust-badge-ios/
 $ ./Scripts/configure.sh
 $ cd -
@@ -313,7 +313,7 @@ That's it !
 - Open your storyboard file and add a Storyboard reference object in it
 - Click on newly created Storyboard Reference and go into Attribute inspector on the right panel
 - In Storyboard field, select `OrangeTrustBadge`
-- In Bundle field, type `org.cocoapods.OrangeTrustBadge`
+- In Bundle field, type `org.cocoapods.OrangeTrustBadge` if you build with **Cocoapods** or `com.orange.omd.OrangeTrustBadge` if you build with **Carthage**.
 - Finally, create a segue from the appropriate button or cell in your app and this Storyboard Reference (Some segue types might be unavailable since this component is using UISplitViewController - Try "Present Modally" to start)
 
 ![inspector](https://github.com/Orange-OpenSource/orange-trust-badge-ios/raw/master/docs/img/inspector.png)

@@ -1,5 +1,15 @@
 #!/bin/sh 
 
+if [ $1 == help ]
+then
+    echo "Usage: $ configure.sh"
+    echo "         The default file 'InfoPlist.strings' will be used to configure the compilation."
+    echo " "
+    echo "       $ configure.sh MyApp_InfoPlist.strings"
+    echo "         The file 'MyApp_InfoPlist.strings' will be used to configure the compilation."
+    exit 0
+fi
+
 echo "Configuring OTHER_SWIFT_FLAGS build setting"
 echo $GCC_PREPROCESSOR_DEFINITIONS | grep COCOAPODS
 if [ $? == 0 ]
@@ -11,6 +21,11 @@ fi
 
 
 TRUSTBADGE_DIR=$PWD
+STRINGS_FILE=InfoPlist.strings
+if [ $# -ge 1 ]
+then
+    STRINGS_FILE=$1
+fi
 
 # Testing Carthage
 if [ -d ../../../Carthage ]
@@ -19,11 +34,11 @@ then
 fi
 
 # Looking for InfoPlist.String
-INFOPLIST_STRING=`find . -type f -name InfoPlist.strings | grep -v Carthage`
+INFOPLIST_STRING=`find . -type f -name ${STRINGS_FILE} | grep -v Carthage  | head -n 1`
 if [ x$INFOPLIST_STRING == x ]
 then
-    echo "Your app doesn't contains any InfoPlist.strings file. You must provide one to integrate OrangeTrustBadge. See https://github.com/Orange-OpenSource/orange-trust-badge-ios/blob/master/README.md"
-#exit 2
+    echo "Your app doesn't contains any ${STRINGS_FILE} file. You must provide one to integrate OrangeTrustBadge. See https://github.com/Orange-OpenSource/orange-trust-badge-ios/blob/master/README.md"
+    exit 2
 fi
 
 # Configure conditional compilation
