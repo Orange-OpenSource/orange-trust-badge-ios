@@ -442,7 +442,7 @@
 				CODE_SIGN_ENTITLEMENTS = OrangeTrustBadgeDemo/OrangeTrustBadgeDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OrangeTrustBadgeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -465,7 +465,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OrangeTrustBadgeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
