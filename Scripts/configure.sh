@@ -1,6 +1,6 @@
 #!/bin/sh 
 
-if [ $1 == help ]
+if [ x"$1" == x"help" ]
 then
     echo "Usage: $ configure.sh"
     echo "         The default file 'InfoPlist.strings' will be used to configure the compilation."

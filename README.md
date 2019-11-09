@@ -130,7 +130,7 @@ To integrate OrangeTrustBadge into your Xcode project using Carthage, specify it
 Run the following commands to configure then build the framework. Drag the built OrangeTrustBadge.framework into your Xcode project.
 
 ```bash
-$ carthage bootstrap orange-trust-badge-ios
+$ carthage update --no-build orange-trust-badge-ios
 $ cd Carthage/Checkouts/orange-trust-badge-ios/
 $ ./Scripts/configure.sh
 $ cd -
