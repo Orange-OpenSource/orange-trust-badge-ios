@@ -203,7 +203,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="IAr-5Q-8oA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="GV2-23-p1f" kind="relationship" relationship="rootViewController" id="Tr7-sg-EQy"/>
@@ -605,6 +604,7 @@
         <scene sceneID="7kM-Od-mrZ">
             <objects>
                 <navigationController id="tgp-kc-AlY" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Zy2-jd-lOy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

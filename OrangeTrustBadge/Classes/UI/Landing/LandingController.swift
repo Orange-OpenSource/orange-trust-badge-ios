@@ -230,14 +230,14 @@ class LandingController: UITableViewController {
             navigationController != self.navigationController,
             let navigationBar = self.navigationController?.navigationBar {
             
-            navigationController.modalPresentationStyle = TrustBadge.shared.config?.modalPresentationStyle ?? .pageSheet
-            let destinationNavigationBar = navigationController.navigationBar
-            
-            destinationNavigationBar.barTintColor = navigationBar.barTintColor
-            destinationNavigationBar.titleTextAttributes = navigationBar.titleTextAttributes
-            destinationNavigationBar.barTintColor = navigationBar.barTintColor
-            destinationNavigationBar.tintColor = navigationBar.tintColor
-            destinationNavigationBar.barStyle = navigationBar.barStyle
+//            navigationController.modalPresentationStyle = TrustBadge.shared.config?.modalPresentationStyle ?? .pageSheet
+//            let destinationNavigationBar = navigationController.navigationBar
+//            
+//            destinationNavigationBar.barTintColor = navigationBar.barTintColor
+//            destinationNavigationBar.titleTextAttributes = navigationBar.titleTextAttributes
+//            destinationNavigationBar.barTintColor = navigationBar.barTintColor
+//            destinationNavigationBar.tintColor = navigationBar.tintColor
+//            destinationNavigationBar.barStyle = navigationBar.barStyle
         }
     }
     
