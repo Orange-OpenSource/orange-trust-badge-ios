@@ -14,8 +14,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dqs-HC-Rvz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <connections>
                             <outlet property="dataSource" destination="mgC-D1-cnK" id="OOp-gk-2PZ"/>
                             <outlet property="delegate" destination="mgC-D1-cnK" id="o2W-fr-0Fb"/>
@@ -37,7 +36,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <connections>
                             <outlet property="dataSource" destination="U8s-yw-8a5" id="OaK-Do-7mL"/>
                             <outlet property="delegate" destination="U8s-yw-8a5" id="vOu-YP-BPZ"/>
@@ -58,7 +56,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="167" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bgb-cD-3sB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TermText" id="GMf-L2-gNB" customClass="TermCell" customModule="OrangeTrustBadge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="167"/>
@@ -606,7 +604,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7kM-Od-mrZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tgp-kc-AlY" sceneMemberID="viewController">
+                <navigationController id="tgp-kc-AlY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Zy2-jd-lOy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

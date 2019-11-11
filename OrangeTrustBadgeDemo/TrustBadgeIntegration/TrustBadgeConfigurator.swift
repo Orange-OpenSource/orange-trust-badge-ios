@@ -148,7 +148,7 @@ extension ViewController {
         config.statusBarStyle = statusBarStyle
         
         // uncomment this section to change modal presentation style (iOS 13+)
-        config.modalPresentationStyle = .fullScreen
+        //config.modalPresentationStyle = .fullScreen
 
         // uncomment this section to change header logo
         //config.headerLogo = UIImage(named:"my-logo")

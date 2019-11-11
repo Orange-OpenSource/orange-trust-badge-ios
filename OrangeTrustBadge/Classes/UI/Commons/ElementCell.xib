@@ -53,7 +53,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itP-6l-3lW">
                         <rect key="frame" x="15" y="84" width="558" height="46"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEk-dg-y8d">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEk-dg-y8d">
                                 <rect key="frame" x="10" y="7" width="496" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dXZ-0k-sQx"/>
