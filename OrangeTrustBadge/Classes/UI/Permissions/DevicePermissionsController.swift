@@ -50,11 +50,7 @@ class DevicePermissionsController: UITableViewController {
         tableView.estimatedRowHeight = 65
         
         NotificationCenter.default.addObserver(self, selector: #selector(DevicePermissionsController.refresh), name: UIApplication.willEnterForegroundNotification, object: nil)
-        
-        if #available(iOS 11, *) {
-            self.tableView.contentInsetAdjustmentBehavior = .never
-        }
-        
+                
         permissions = [TrustBadge.shared.devicePermissions.filter({ $0 is PreDefinedElement })
             .sorted(by: { ($0 as! PreDefinedElement).type.rawValue < ($1 as! PreDefinedElement).type.rawValue }),
                            TrustBadge.shared.devicePermissions.filter({ $0 is CustomElement })]

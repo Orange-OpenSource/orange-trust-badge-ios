@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UITabBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().barTintColor = UIColor.black
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+//        UITabBar.appearance().tintColor = UIColor.white
+//        UINavigationBar.appearance().barTintColor = UIColor.black
+//        UINavigationBar.appearance().isTranslucent = false
+//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         
         return true
     }

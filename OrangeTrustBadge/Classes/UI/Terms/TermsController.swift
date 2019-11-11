@@ -45,9 +45,6 @@ class TermsController: UITableViewController {
 
         tableView.estimatedRowHeight = 100
 
-        if #available(iOS 11, *) {
-            self.tableView.contentInsetAdjustmentBehavior = .never
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

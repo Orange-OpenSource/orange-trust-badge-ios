@@ -46,9 +46,6 @@ class ApplicationDataController: UITableViewController {
         self.tableView.register(UINib(nibName: "ElementCell", bundle: Bundle(for: TrustBadgeConfig.self)), forCellReuseIdentifier: ElementCell.reuseIdentifier)
         tableView.estimatedRowHeight = 65       
 
-        if #available(iOS 11, *) {
-            self.tableView.contentInsetAdjustmentBehavior = .never
-        }
         NotificationCenter.default.addObserver(self, selector: #selector(ApplicationDataController.refresh), name: UIApplication.willEnterForegroundNotification, object: nil)
 
         applicationData = [TrustBadge.shared.applicationData.filter({ $0 is PreDefinedElement })

@@ -76,12 +76,10 @@ class LandingController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UIDevice.current.userInterfaceIdiom == .pad{
+        if UIDevice.current.userInterfaceIdiom == .pad {
             self.clearsSelectionOnViewWillAppear = false
         }
-        if #available(iOS 11.0, *) {
-            self.tableView.contentInsetAdjustmentBehavior = .never
-        }
+
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: LandingController.defaultReuseIdentifier)
         tableView.estimatedRowHeight = 70
         NotificationCenter.default.post(name: Notification.Name(rawValue: TrustBadge.TRUSTBADGE_ENTER), object: nil)
@@ -230,14 +228,14 @@ class LandingController: UITableViewController {
             navigationController != self.navigationController,
             let navigationBar = self.navigationController?.navigationBar {
             
-//            navigationController.modalPresentationStyle = TrustBadge.shared.config?.modalPresentationStyle ?? .pageSheet
-//            let destinationNavigationBar = navigationController.navigationBar
-//            
-//            destinationNavigationBar.barTintColor = navigationBar.barTintColor
-//            destinationNavigationBar.titleTextAttributes = navigationBar.titleTextAttributes
-//            destinationNavigationBar.barTintColor = navigationBar.barTintColor
-//            destinationNavigationBar.tintColor = navigationBar.tintColor
-//            destinationNavigationBar.barStyle = navigationBar.barStyle
+            navigationController.modalPresentationStyle = TrustBadge.shared.config?.modalPresentationStyle ?? .pageSheet
+            let destinationNavigationBar = navigationController.navigationBar
+            
+            destinationNavigationBar.barTintColor = navigationBar.barTintColor
+            destinationNavigationBar.titleTextAttributes = navigationBar.titleTextAttributes
+            destinationNavigationBar.barTintColor = navigationBar.barTintColor
+            destinationNavigationBar.tintColor = navigationBar.tintColor
+            destinationNavigationBar.barStyle = navigationBar.barStyle
         }
     }
     
