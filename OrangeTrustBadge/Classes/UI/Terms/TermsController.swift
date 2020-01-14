@@ -62,6 +62,10 @@ class TermsController: UITableViewController {
         TrustBadge.shared.pageDidAppear("Terms")
     }
 
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.tableView.reloadData()
+    }
+
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
