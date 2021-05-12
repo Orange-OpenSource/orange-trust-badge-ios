@@ -35,7 +35,7 @@ class TermsController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .white
         if let splitViewController = self.splitViewController {
             navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
             navigationItem.leftItemsSupplementBackButton = true
